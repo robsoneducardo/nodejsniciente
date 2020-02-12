@@ -3,19 +3,20 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class MacroregionsSchema extends Schema {
+class MesoregionsSchema extends Schema {
   up () {
-    this.create('macroregions', (table) => {
+    this.create('mesoregions', (table) => {
       table.increments()
       table.integer('code').notNullable().unique()
       table.string('name', 13).notNullable().unique()
+      table.integer('state_code')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('macroregions')
+    this.drop('mesoregions')
   }
 }
 
-module.exports = MacroregionsSchema
+module.exports = MesoregionsSchema
